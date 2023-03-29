@@ -8,7 +8,77 @@
     <link rel="stylesheet" href="src/styles.css" />
   </head>
   <body>
-    <h1>Homework 7</h1>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SC Homework 7</title>
+        <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+        <link
+          rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="style.css" />
+      </head>
+      <body>
+        <div class="container">
+          <div class="weather-app">
+            <form class="search-form">
+              <div class="row">
+                <div class="col-6">
+                  <input
+                    type="search"
+                    placeholder="Type a city.."
+                    autofocus="on"
+                    autocomplete="off"
+                    class="form-control shadow-sm"
+                    id="search-input"
+                  />
+                </div>
+                <div class="col-3">
+                  <input
+                    type="submit"
+                    value="Search"
+                    class="form-control btn btn-primary shadow-sm"
+                  />
+                </div>
+              </div>
+            </form>
+            <h1>Sydney NSW, Australia</h1>
+            <ul>
+              <li class="day">Wednesday 22:00</li>
+              <li id="weather">Partly Cloudy</li>
+            </ul>
+            <div class="row">
+              <div class="col-6">
+                <div class="clearfix">
+                  <img
+                    src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                    alt="Cloudy icon"
+                    class="weather-icon float-left"
+                  />
+                  <div class="float-left">
+                    <span class="temperature" id="currentTemp">19</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <ul>
+                  <li id="humid">Humidity: 77%</li>
+                  <li id="windSpeed">Wind: 8 km/h</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script src="script.js"></script>
+      </body>
+    </html>
   </body>
   <script src="src/scripts.js"></script>
 </html>
