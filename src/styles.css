@@ -40,12 +40,6 @@ li::first-letter {
   border-radius: 10px;
 }
 
-.weather-icon {
-  height: 64px;
-  width: 64px;
-  margin-right: 10px;
-}
-
 .temperature {
   color: rgb(33, 33, 33);
   font-size: 64px;

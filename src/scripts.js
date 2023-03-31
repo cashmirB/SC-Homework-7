@@ -40,12 +40,30 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.time * 1000);
 
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  ),
+    iconElement.setAttribute("alt", response.data.condition.description);
   console.log(response.data);
 }
 
-let apiKey = "77c45f57f94o3fb60fb856c88ed36ata";
-let city = "Manila";
+function search(city) {
+  let apiKey = "77c45f57f94o3fb60fb856c88ed36ata";
 
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
-axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function searchSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+search("London");
+
+let form = document.querySelector(".search-form");
+form.addEventListener("submit", searchSubmit);
