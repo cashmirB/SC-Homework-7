@@ -23,24 +23,21 @@ function formatDate(timestamp) {
 
 function displayTemperature(response) {
   let tempElement = document.querySelector("#currentTemp");
-  tempElement.innerHTML = Math.round(response.data.temperature.current);
-
   let cityElement = document.querySelector("#city");
-  cityElement.innerHTML = response.data.city;
-
   let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = response.data.condition.description;
-
   let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = response.data.temperature.humidity;
-
   let windElement = document.querySelector("#wind");
-  windElement.innerHTML = Math.round(response.data.wind.speed);
-
   let dateElement = document.querySelector("#date");
-  dateElement.innerHTML = formatDate(response.data.time * 1000);
-
   let iconElement = document.querySelector("#icon");
+
+  celciusTemperature = response.data.temperature.current;
+
+  tempElement.innerHTML = Math.round(celciusTemperature);
+  cityElement.innerHTML = response.data.city;
+  descriptionElement.innerHTML = response.data.condition.description;
+  humidityElement.innerHTML = response.data.temperature.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  dateElement.innerHTML = formatDate(response.data.time * 1000);
   iconElement.setAttribute(
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
@@ -64,13 +61,29 @@ function searchSubmit(event) {
 
 function displayFahrenheitTemp(event) {
   event.preventDefault();
-  alert("Hello");
+  let temperatureElement = document.querySelector("#currentTemp");
+  celciusLink.classList.remove("active");
+  let fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
+
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
 }
 
-search("London");
+function displayCelciusTemp(event) {
+  event.preventDefault;
+  let temperatureElement = document.querySelector("#currentTemp");
+
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+}
+
+let celciusTemperature = null;
 
 let form = document.querySelector(".search-form");
 form.addEventListener("submit", searchSubmit);
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+
+let celciusLink = document.querySelector("#celcius");
+celciusLink.addEventListener("click", displayCelciusTemp);
+
+search("London");

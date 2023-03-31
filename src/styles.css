@@ -46,6 +46,16 @@ li::first-letter {
   height: 80px;
   width: 80px;
 }
+
+.weather-temp .active {
+  color: black;
+  cursor: default;
+}
+
+.weather-temp .active:hover {
+  text-decoration: none;
+}
+
 .temperature {
   color: rgb(33, 33, 33);
   font-size: 64px;
