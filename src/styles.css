@@ -70,3 +70,23 @@ li::first-letter {
 .search-form {
   margin-bottom: 20px;
 }
+
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.weather-forecast-day {
+  font-size: 16px;
+  color: black;
+}
+
+.weather-forecast-temp {
+  font-size: 13px;
+  color: black;
+}
+
+.minimun-temp {
+  opacity: 0.5;
+}
